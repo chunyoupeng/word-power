@@ -8,9 +8,6 @@ const { Pool } = pg;
 import cors from 'cors';
 
 const app = express();
-app.use(cors({
-    origin: 'http://localhost:3000' // 允许这个域发起跨源请求
-  }));
 app.use(cors());
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));

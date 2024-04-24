@@ -4,7 +4,7 @@ import Markdown from "react-markdown"
 import Description  from './Description';
 import Collapsible from './Collapsible';
 
-const apiUrl = "http://172.17.0.1:3001";
+const apiUrl = "http://129.211.6.250:3001";
 
 function App() {
   const [word, setWord] = useState('');
