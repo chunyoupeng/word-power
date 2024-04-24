@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # 安装依赖
-RUN npm install
+RUN npm install --registry=https://registry.npmmirror.com
 
 # 拷贝前端项目文件
 COPY . .
@@ -16,7 +16,7 @@ COPY . .
 RUN npm run build
 
 # 安装 serve 用于服务静态文件
-RUN npm install -g serve
+RUN npm install -g serve --registry=https://registry.npmmirror.com
 
 # 暴露端口
 EXPOSE 3000
