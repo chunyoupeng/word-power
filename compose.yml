@@ -1,0 +1,43 @@
+services:
+  backend:
+    build:
+      context: backend
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_URL=postgres://postgres:119900@db:5432/words_db
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=119900
+      - POSTGRES_DB=words_db
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://backend:3001
+    networks:
+      - app-network
+
+volumes:
+  db-data:
+
+networks:
+  app-network:
+    driver: bridge
