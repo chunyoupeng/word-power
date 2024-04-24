@@ -1,6 +1,8 @@
 import  { useState } from 'react';
 import axios from 'axios';
 import Markdown from "react-markdown"
+import Description  from './Description';
+import Collapsible from './Collapsible';
 
 const apiUrl = "http://172.17.0.1:3001";
 
@@ -48,6 +50,12 @@ function App() {
   return (
     <div className="max-w-xl mx-auto p-4">
   <div className="mb-4">
+    {/* <img src={bookImage} alt="Word Power Book" width={400}/> */}
+
+    <Collapsible title="网站说明">
+      <Description></Description>
+    </Collapsible>
+    {/* <h1 className='text-2xl m-5'>单词输入框</h1> */}
     <input
       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       value={word}
@@ -74,7 +82,7 @@ function App() {
     </div>
   </div>
 )}
-  <div className="mb-4">
+  {/* <div className="mb-4">
     <textarea
       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       value={text}
@@ -87,7 +95,7 @@ function App() {
     >
       Analyze Text
     </button>
-  </div>
+  </div> */}
 {
   unknownWords.length > 0 && (
     <div className="max-w-xl mx-auto mt-5">
