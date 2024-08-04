@@ -112,6 +112,7 @@ function App() {
     </div>
   )
 }
+<a href="https://beian.miit.gov.cn/" target="_blank">渝ICP备2024023871号-1</a>
 </div>
 
   );
